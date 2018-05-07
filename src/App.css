@@ -1,0 +1,26 @@
+.app {
+    width: 100%;
+    min-height: 100vh;
+    background: #00247d;
+}
+.container {
+    width: 1170px;
+    margin: 0 auto;
+}
+.headline {
+    font-weight: 300;
+    font-size: 50px;
+    text-align: center;
+    color: #fff;
+}
+.headline span {
+    color: #cf142b;
+}
+.subheadline {
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin-top: -35px;
+    margin-bottom: 15px;
+}
