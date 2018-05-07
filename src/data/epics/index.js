@@ -37,10 +37,18 @@ export const fetchWordsEpic = action$ => {
                         }?caseSensitive=false&skip=1&limit=15&api_key=${API_KEY}`
                     )
                     .retry(3)
-                    .mergeMap(result => [
-                        fetchDataFulfilled(result.response),
-                        changeLoadingInfo('searchWords', false)
-                    ])
+                    .mergeMap(result => {
+                        const { searchResults = [] } = result.response;
+
+                        if (searchResults.length === 0) {
+                            message.info("Words for such query weren't found!");
+                        }
+
+                        return [
+                            fetchDataFulfilled(result.response),
+                            changeLoadingInfo('searchWords', false)
+                        ];
+                    })
                     .catch(err => {
                         const { response: { message: msg } = {} } = err;
 

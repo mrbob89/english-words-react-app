@@ -5,7 +5,6 @@ import { createStore, applyMiddleware } from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
 import appEpic from './epic';
 import rootReducer from './data/reducers';
 
@@ -18,4 +17,3 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root')
 );
-registerServiceWorker();
