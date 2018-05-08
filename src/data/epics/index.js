@@ -110,7 +110,7 @@ export const fetchSavedWords = action$ => {
 export const saveWordsToStorageEpic = action$ => {
     return action$
         .ofType(SAVE_WORDS)
-        .distinct(action => action.wordList[0])
+        .distinct(action => action.wordList)
         .switchMap(action => {
             localStorage.setItem('savedWords', JSON.stringify(action.wordList));
 
